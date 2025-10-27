@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Der Kantianer - 404</title>
+    <style>
+        /* Gesamtseite: leicht verschnörkelte Web‑Serif als Standard */
+        :root{--bg:#fbfbfb;--accent:#b33;--text:#222;--muted:#666;}
+        html,body{height:100%}
+        body{
+            margin:0;
+            font-family: "Georgia", "Times New Roman", Times, serif;
+            background:var(--bg);
+            color:var(--text);
+            -webkit-font-smoothing:antialiased;
+            -moz-osx-font-smoothing:grayscale;
+        }
+        .wrap{
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+            padding:2rem;
+            box-sizing:border-box;
+            text-align:center;
+        }
+        header.main-header h1{margin:0;font-size:1.5rem}
+        .error-code{
+            font-size:5.5rem;
+            line-height:1;
+            font-weight:700;
+            color:var(--accent);
+            margin:0.5rem 0;
+        }
+        .lead{
+            font-size:1.125rem;
+            margin:0.5rem 0 1rem;
+            color:var(--muted);
+        }
+        .pun{
+            font-size:1.25rem;
+            margin-top:0.5rem;
+            color:var(--text);
+            font-weight:600;
+        }
+        .actions{margin-top:1.25rem}
+        .btn{
+            display:inline-block;
+            background:#222;
+            color:#fff;
+            padding:0.55rem 0.9rem;
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:600;
+            box-shadow:0 2px 6px rgba(0,0,0,0.08);
+        }
+        .btn.secondary{
+            background:transparent;
+            color:var(--text);
+            border:1px solid #ddd;
+            margin-left:0.5rem;
+        }
+        footer.main-footer{
+            margin-top:2.5rem;
+            font-size:0.875rem;
+            color:var(--muted);
+        }
+        @media (max-width:420px){
+            .error-code{font-size:3.6rem}
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap" role="main">
+        <header class="main-header" aria-hidden="false">
+            <h1>Der Kantianer</h1>
+            <p class="lead">Schülerzeitung des IKG Heiligenhaus</p>
+        </header>
+
+        <div class="error-block">
+            <div class="error-code" id="errcode">404</div>
+            <br>
+            <p class="pun">Der Server KANTe leider deine angefragte Seite nicht.</p>
+            <p class="lead">Möglicherweise wurde die Seite verschoben oder existiert nicht mehr.</p>
+
+            <div class="actions">
+                <a class="btn" href="index.html" title="Zur Startseite">Zur Startseite</a>
+                <a class="btn secondary" href="mailto:kantianer@ikg-heiligenhaus.de" title="Kontakt">Kontakt</a>
+            </div>
+        </div>
+
+        <footer class="main-footer" role="contentinfo">
+            <p>&copy; 2025 Kantianer – Schülerzeitung des IKG Heiligenhaus</p>
+        </footer>
+    </div>
+</body>
+</html>

@@ -23,6 +23,14 @@ body {
     padding: 0;
 }
 
+/* Allgemeine Schriftart: leicht verschnörkelt (serif) */
+body {
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.45;
+    color: #222;
+}
+
 .main-header {
     background: rgb(189, 38, 36);
     color: #fff;
@@ -102,6 +110,20 @@ body {
     position: relative;
     bottom: 0;
     width: 100%;
+}
+
+/* Shortlink im Footer immer weiß anzeigen */
+.main-footer .shortlink,
+.main-footer .shortlink:visited {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.main-footer .shortlink:hover,
+.main-footer .shortlink:focus {
+    color: #ffffff;
+    text-decoration: underline;
+    outline: none;
 }
 
 .impressum-modal {
