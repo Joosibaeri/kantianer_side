@@ -27,6 +27,7 @@ main {
     padding: 2rem 0 1rem 0;
     text-align: center;
     box-shadow: 0 2px 8px rgba(189, 38, 36, 0.08);
+    position: relative; /* Wichtig für die Hitbox */
 }
 
 .main-header h1 {

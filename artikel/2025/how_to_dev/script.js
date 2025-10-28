@@ -23,4 +23,11 @@ window.addEventListener('DOMContentLoaded', () => {
                 .map(paragraph => `<p>${paragraph.trim()}</p>`)
                 .join('');
         });
+
+    // Hitbox-Link dynamisch auf die Domain setzen (optional)
+    const domain = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ":" + window.location.port : "");
+    const link = document.getElementById('domain-link');
+    if (link) {
+        link.href = domain + "/";
+    }
 });

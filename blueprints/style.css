@@ -27,12 +27,15 @@ main {
     padding: 2rem 0 1rem 0;
     text-align: center;
     box-shadow: 0 2px 8px rgba(189, 38, 36, 0.08);
+    position: relative; /* Für die Hitbox */
 }
 
 .main-header h1 {
     margin: 0;
     font-size: 2.5rem;
     letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
 }
 
 .subtitle {
