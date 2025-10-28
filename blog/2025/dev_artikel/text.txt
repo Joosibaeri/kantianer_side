@@ -1,0 +1,84 @@
+Jeden Tag besuchen wir unzählige Websites – von YouTube über Schulportale bis hin zu Nachrichtenseiten. Doch kaum jemand denkt darüber nach, wie diese Seiten eigentlich entstehen. Dabei kann wirklich jede:r selbst eine Website programmieren – und das ist gar nicht so kompliziert, wie es klingt.
+
+Das Herzstück jeder Website ist die Sprache HTML, kurz für HyperText Markup Language. Sie beschreibt, was auf einer Seite steht – also Texte, Überschriften, Bilder und Links. HTML ist sozusagen das Skelett einer Website. Ein einfaches Beispiel siehst du hier:
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Meine erste Website</title>
+  </head>
+  <body>
+    <h1>Willkommen auf meiner ersten Website!</h1>
+    <p>Ich habe diese Seite selbst programmiert – cool, oder?</p>
+    <a href="https://www.wikipedia.org">Hier geht’s zu Wikipedia</a>
+  </body>
+</html>
+
+
+Wenn du diesen Code in den Windows-Editor (Notepad) oder Visual Studio Code kopierst und die Datei unter dem Namen index.html speicherst, kannst du sie im Browser öffnen – und schon siehst du deine erste Website!
+
+Doch das ist nur der Anfang. So wie ein Haus ohne Farbe und Möbel langweilig wäre, sieht auch eine reine HTML-Seite etwas trist aus. Hier kommt CSS ins Spiel – die Cascading Style Sheets. Mit CSS kannst du Farben, Schriftarten, Abstände und Formen gestalten.
+
+Hier ein Beispiel für eine kleine Design-Erweiterung. Speichere diesen Code in einer Datei namens style.css:
+
+body {
+  background: linear-gradient(to bottom right, #9bd4ff, #ffffff);
+  font-family: 'Arial', sans-serif;
+  color: #222;
+  text-align: center;
+  margin-top: 100px;
+}
+
+h1 {
+  color: #004b91;
+  text-shadow: 1px 1px 2px #999;
+}
+
+a {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: white;
+  background-color: #0078d7;
+  padding: 10px 20px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+a:hover {
+  background-color: #005fa3;
+}
+
+
+Nun musst du die CSS-Datei mit deiner HTML-Datei verbinden. Öffne dazu den <head>-Bereich deiner Seite und füge folgende Zeile ein:
+
+<link rel="stylesheet" href="style.css">
+
+
+Wenn du jetzt beides speicherst und die Seite im Browser neu lädst, wirst du sehen: Dein Design sieht schon richtig professionell aus!
+
+Und wer jetzt denkt, dass es das schon war, liegt falsch – denn mit JavaScript kannst du deiner Seite Leben einhauchen!
+JavaScript ist die Programmiersprache des Internets und sorgt dafür, dass Websites auf dich reagieren können.
+Hier ein Beispiel: ein Knopf, der beim Anklicken den Text verändert.
+
+<button id="knopf">Klick mich!</button>
+<p id="text">Ich warte auf deinen Klick...</p>
+
+<script>
+  const button = document.getElementById("knopf");
+  const text = document.getElementById("text");
+
+  button.addEventListener("click", () => {
+    text.textContent = "Du hast den Knopf gedrückt! 🎉";
+    button.style.backgroundColor = "#00c853";
+    button.style.color = "white";
+  });
+</script>
+
+
+Wenn du diesen Code unter den <body>-Bereich deiner HTML-Seite schreibst, kannst du selbst sehen, wie deine Website reagiert. Jedes Mal, wenn du klickst, ändert sich der Text – und das ganz ohne Zusatzprogramme oder Internetverbindung.
+
+Mit diesen drei Sprachen – HTML für den Aufbau, CSS für das Design und JavaScript für die Interaktivität – kannst du fast jede moderne Website erschaffen. Viele professionelle Webdesigner:innen arbeiten täglich genau mit diesen Werkzeugen.
+
+Das Beste: Du kannst sofort anfangen. Alles, was du brauchst, ist ein Texteditor, dein Browser und ein bisschen Neugier. Vielleicht ist deine erste Website noch einfach – aber wer weiß, vielleicht wird sie eines Tages so beliebt wie die Seiten, die du heute besuchst. Das Internet wartet darauf, von dir gestaltet zu werden.
