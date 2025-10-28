@@ -1,14 +1,14 @@
 [
   {
-    "title": "Willkommen zur neuen Ausgabe!",
-    "teaser": "Die Kantianer-Redaktion stellt sich vor und berichtet über aktuelle Themen am IKG.",
-    "url": "artikel/willkommen.html",
+    "title": "Wie man eine Website schreibt",
+    "teaser": "Vom ersten Code bis zur eigenen Seite: So programmierst du das Internet selbst.",
+    "url": "artikel/2025/how_to_dev",
     "date": "2025-10-28"
   },
   {
-    "title": "Interview mit der Schulleitung",
-    "teaser": "Was bewegt das IKG? Ein exklusives Gespräch mit Frau Mustermann.",
-    "url": "artikel/interview.html",
-    "date": "2025-10-25"
+    "title": "Bald...",
+    "teaser": "Lies den Titel!",
+    "url": "artikel/2025/bald",
+    "date": "0000-00-00"
   }
 ]
