@@ -89,6 +89,12 @@ main {
     line-height: 1.7;
 }
 
+.article-date {
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
+
 .main-footer {
     background: rgb(189, 38, 36);
     color: #fff;

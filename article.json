@@ -1,0 +1,14 @@
+[
+  {
+    "title": "Willkommen zur neuen Ausgabe!",
+    "teaser": "Die Kantianer-Redaktion stellt sich vor und berichtet über aktuelle Themen am IKG.",
+    "url": "artikel/willkommen.html",
+    "date": "2025-10-28"
+  },
+  {
+    "title": "Interview mit der Schulleitung",
+    "teaser": "Was bewegt das IKG? Ein exklusives Gespräch mit Frau Mustermann.",
+    "url": "artikel/interview.html",
+    "date": "2025-10-25"
+  }
+]
