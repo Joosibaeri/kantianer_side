@@ -34,12 +34,12 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function getTopics(articles) {
-        // Wenn Topic-Feld existiert, extrahiere alle Topics
+        // Wenn Topic-Feld existiert, extrahiere alle Topics (case-insensitive, sortiert)
         const topics = new Set();
         articles.forEach(a => {
-            if (a.topic) topics.add(a.topic);
+            if (a.topic) topics.add(a.topic.trim().toLowerCase());
         });
-        return Array.from(topics);
+        return Array.from(topics).sort((a, b) => a.localeCompare(b));
     }
 
     function filterArticles() {
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const topic = topicSelect ? topicSelect.value : '';
         let filtered = articles;
         if (topic) {
-            filtered = filtered.filter(a => (a.topic || '') === topic);
+            filtered = filtered.filter(a => (a.topic || '').trim().toLowerCase() === topic);
         }
         if (query) {
             const words = query.split(/\s+/);
@@ -63,13 +63,14 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(data => {
             articles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-            // Topics ins Dropdown einfügen
+            // Topics ins Dropdown einfügen (vorher leeren)
             if (topicSelect) {
+                topicSelect.innerHTML = '<option value="">Alle Themen</option>';
                 const topics = getTopics(articles);
                 topics.forEach(topic => {
                     const opt = document.createElement('option');
                     opt.value = topic;
-                    opt.textContent = topic;
+                    opt.textContent = topic.charAt(0).toUpperCase() + topic.slice(1);
                     topicSelect.appendChild(opt);
                 });
             }
