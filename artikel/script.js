@@ -63,10 +63,10 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(data => {
             articles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-            // Topics ins Dropdown einfügen (vorher leeren)
             if (topicSelect) {
                 topicSelect.innerHTML = '<option value="">Alle Themen</option>';
                 const topics = getTopics(articles);
+                console.log('Topics gefunden:', topics); // <--- Debug-Ausgabe
                 topics.forEach(topic => {
                     const opt = document.createElement('option');
                     opt.value = topic;
