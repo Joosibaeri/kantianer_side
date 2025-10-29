@@ -1,0 +1,108 @@
+/* Impressum-Link im Footer immer weiß */
+.impressum-link {
+    color: #fff !important;
+    text-decoration: underline;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
+/* Kantianer Blog-Style Minimal */
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: "Georgia", "Times New Roman", Times, serif;
+    font-size: 16px;
+    line-height: 1.45;
+    background: #fff;
+    color: #222;
+}
+
+main {
+    flex: 1;
+}
+
+.main-header {
+    background: rgb(189, 38, 36);
+    color: #fff;
+    padding: 2rem 0 1rem 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(189, 38, 36, 0.08);
+    position: relative; /* Für die Hitbox */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 1;
+}
+
+.subtitle {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: #ffeaea;
+}
+
+.articles {
+    max-width: 900px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.articles h2 {
+    color: rgb(189, 38, 36);
+    font-size: 1.7rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid rgba(189, 38, 36, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.article-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.main-footer {
+    background: rgb(189, 38, 36);
+    color: #000;
+    text-align: center;
+    padding: 1rem 0;
+    margin-top: 3rem;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    box-shadow: 0 -2px 8px rgba(189, 38, 36, 0.08);
+    width: 100%;
+}
+
+.main-footer .shortlink,
+.main-footer .shortlink:visited {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.main-footer .shortlink:hover,
+.main-footer .shortlink:focus {
+    color: #fff;
+    text-decoration: underline;
+    outline: none;
+}
+
+@media (max-width: 600px) {
+    .main-header h1 {
+        font-size: 1.7rem;
+    }
+    .articles {
+        padding: 0 0.3rem;
+    }
+}
