@@ -1,3 +1,11 @@
+/* Impressum-Link im Footer immer weiß */
+.impressum-link {
+    color: #fff !important;
+    text-decoration: underline;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-size: 0.95rem;
+}
 /* Kantianer Blog-Style Minimal */
 
 html, body {
