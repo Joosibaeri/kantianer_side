@@ -1,5 +1,6 @@
 // Setzt die Domain-Grundform in die Hitbox
 window.addEventListener('DOMContentLoaded', () => {
+    const yearSelect = document.getElementById('year-select');
     const domain = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ":" + window.location.port : "");
     const link = document.getElementById('domain-link');
     if (link) {
@@ -45,9 +46,13 @@ window.addEventListener('DOMContentLoaded', () => {
     function filterArticles() {
         const query = searchInput ? searchInput.value.trim().toLowerCase() : '';
         const topic = topicSelect ? topicSelect.value : '';
+        const year = yearSelect ? yearSelect.value : '';
         let filtered = articles;
         if (topic) {
             filtered = filtered.filter(a => (a.topic || '').trim() === topic);
+        }
+        if (year) {
+            filtered = filtered.filter(a => a.date && new Date(a.date).getFullYear().toString() === year);
         }
         if (query) {
             const words = query.split(/\s+/);
@@ -66,7 +71,6 @@ window.addEventListener('DOMContentLoaded', () => {
             if (topicSelect) {
                 topicSelect.innerHTML = '<option value="">Alle Themen</option>';
                 const topics = getTopics(articles);
-                console.log('Topics gefunden:', topics); // <--- Debug-Ausgabe
                 topics.forEach(topic => {
                     const opt = document.createElement('option');
                     opt.value = topic;
@@ -74,9 +78,20 @@ window.addEventListener('DOMContentLoaded', () => {
                     topicSelect.appendChild(opt);
                 });
             }
+            if (yearSelect) {
+                const years = Array.from(new Set(articles.map(a => a.date ? new Date(a.date).getFullYear().toString() : null).filter(Boolean))).sort((a, b) => b - a);
+                yearSelect.innerHTML = '<option value="">Alle Jahre</option>';
+                years.forEach(year => {
+                    const opt = document.createElement('option');
+                    opt.value = year;
+                    opt.textContent = year;
+                    yearSelect.appendChild(opt);
+                });
+            }
             renderArticles(articles);
         });
 
     if (searchInput) searchInput.addEventListener('input', filterArticles);
     if (topicSelect) topicSelect.addEventListener('change', filterArticles);
+    if (yearSelect) yearSelect.addEventListener('change', filterArticles);
 });
