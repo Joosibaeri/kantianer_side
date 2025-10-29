@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const loadMoreBtn = document.getElementById('load-more');
     const searchInput = document.getElementById('search-input');
 
-    function filterArticles(query, year) {
+    function filterArticles(query) {
         let filtered = articles;
         if (query && query.trim() !== '') {
             const words = query.trim().toLowerCase().split(/\s+/);
@@ -101,22 +101,6 @@ window.addEventListener('DOMContentLoaded', () => {
                         if (loadMoreBtn && articles.length > pageSize) loadMoreBtn.style.display = 'inline-block';
                     } else {
                         const filtered = filterArticles(query);
-                        renderArticles(filtered);
-                    }
-                });
-            }
-            if (yearSelect) {
-                yearSelect.addEventListener('change', () => {
-                    const query = searchInput ? searchInput.value : '';
-                    const year = yearSelect.value;
-                    if (query.trim() === '' && (!year || year === '')) {
-                        // Standardansicht
-                        if (list) list.innerHTML = '';
-                        currentIndex = 0;
-                        renderNext();
-                        if (loadMoreBtn && articles.length > pageSize) loadMoreBtn.style.display = 'inline-block';
-                    } else {
-                        const filtered = filterArticles(query, year);
                         renderArticles(filtered);
                     }
                 });
