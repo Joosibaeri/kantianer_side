@@ -131,6 +131,28 @@ main {
     font-size: 0.95rem;
 }
 
+#load-more-container {
+    text-align: center;
+    margin-top: 1.5rem;
+}
+
+.load-more-btn {
+    background: #fff;
+    color: rgb(189, 38, 36);
+    border: 1px solid rgba(189, 38, 36, 0.15);
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 2px 6px rgba(189, 38, 36, 0.06);
+    transition: box-shadow 0.15s, transform 0.08s;
+}
+
+.load-more-btn:hover {
+    box-shadow: 0 4px 12px rgba(189, 38, 36, 0.1);
+    transform: translateY(-1px);
+}
+
 @media (max-width: 600px) {
     .main-header h1 {
         font-size: 1.7rem;
