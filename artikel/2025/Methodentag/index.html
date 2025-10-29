@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Der Kantianer – Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+    <header class="main-header" style="position:relative;">
+        <!-- Unsichtbare Hitbox: über den gesamten Header -->
+        <a id="domain-link"
+           href="/"
+           style="display:block;position:absolute;top:0;left:0;width:100%;height:100%;opacity:0;z-index:10;"></a>
+        <h1 style="position:relative;z-index:1;">Der Kantianer</h1>
+        <p class="subtitle">Schülerzeitung des IKG Heiligenhaus</p>
+    </header>
+    <main>
+        <div class="article-container">
+            <div class="article-thumbnail">
+                <img id="thumbnail" src="thumbnail.png" alt="Artikelbild">
+            </div>
+            <h2 id="article-title"></h2>
+            <div class="article-meta" id="article-meta"></div>
+            <article id="article-body"></article>
+        </div>
+    </main>
+    <footer class="main-footer">
+        <p>&copy; 2025 Kantianer – Schülerzeitung des IKG Heiligenhaus</p>
+        <a href="https://github.com/Joosibaeri/kantianer_side" id="shortlink" class="shortlink" target="_blank" rel="noopener noreferrer" title=""><u>Code</u></a>
+        <a href="//impressum" id="shortlink" class="shortlink" target="_blank" rel="noopener noreferrer" title=""><u>Impressum</u></a>
+    </footer>
+</body>
+
+</html>
