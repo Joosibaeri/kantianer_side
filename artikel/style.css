@@ -1,3 +1,50 @@
+/* Suchleiste größer und optisch ansprechender */
+.search-fullwidth {
+    display: block;
+    width: 100%;
+    max-width: 500px;
+    box-sizing: border-box;
+    padding: 0.7rem 1.2rem;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 1.15rem;
+    margin: 0 auto 0 0;
+    background: #faf9f9;
+    transition: border 0.2s;
+}
+.search-fullwidth:focus {
+    border: 1.5px solid rgb(189, 38, 36);
+    outline: none;
+}
+
+/* Artikel-Boxen wie auf der Startseite */
+.article-card {
+    background: #fff;
+    border: 1px solid rgba(189, 38, 36, 0.15);
+    border-radius: 12px;
+    box-shadow: 0 2px 12px rgba(189, 38, 36, 0.07);
+    padding: 2rem 1.5rem;
+    transition: box-shadow 0.2s;
+}
+.article-card:hover {
+    box-shadow: 0 4px 24px rgba(189, 38, 36, 0.15);
+}
+.article-card h3 {
+    color: rgb(189, 38, 36);
+    margin-top: 0;
+    margin-bottom: 0.7rem;
+    font-size: 1.3rem;
+}
+.article-card p {
+    margin: 0;
+    font-size: 1.05rem;
+    line-height: 1.7;
+}
+.article-date {
+    color: #888;
+    font-size: 0.95rem;
+    margin-top: 0.5rem;
+}
 /* Impressum-Link im Footer immer weiß */
 .impressum-link {
     color: #fff !important;
