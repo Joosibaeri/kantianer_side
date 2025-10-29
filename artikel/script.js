@@ -34,10 +34,10 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     function getTopics(articles) {
-        // Wenn Topic-Feld existiert, extrahiere alle Topics (case-insensitive, sortiert)
+        // Wenn Topic-Feld existiert, extrahiere alle Topics (exakt wie in JSON, sortiert)
         const topics = new Set();
         articles.forEach(a => {
-            if (a.topic) topics.add(a.topic.trim().toLowerCase());
+            if (a.topic) topics.add(a.topic.trim());
         });
         return Array.from(topics).sort((a, b) => a.localeCompare(b));
     }
@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
         const topic = topicSelect ? topicSelect.value : '';
         let filtered = articles;
         if (topic) {
-            filtered = filtered.filter(a => (a.topic || '').trim().toLowerCase() === topic);
+            filtered = filtered.filter(a => (a.topic || '').trim() === topic);
         }
         if (query) {
             const words = query.split(/\s+/);
@@ -70,7 +70,7 @@ window.addEventListener('DOMContentLoaded', () => {
                 topics.forEach(topic => {
                     const opt = document.createElement('option');
                     opt.value = topic;
-                    opt.textContent = topic.charAt(0).toUpperCase() + topic.slice(1);
+                    opt.textContent = topic;
                     topicSelect.appendChild(opt);
                 });
             }
