@@ -59,7 +59,7 @@ window.addEventListener('DOMContentLoaded', () => {
         renderArticles(filtered);
     }
 
-    fetch('../article.json')
+    fetch('article.json')
         .then(res => res.json())
         .then(data => {
             articles = data.sort((a, b) => new Date(b.date) - new Date(a.date));
