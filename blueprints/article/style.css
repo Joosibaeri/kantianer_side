@@ -40,17 +40,19 @@ main {
 
 .main-header h1 {
     margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
 }
 
-.subtitle {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #ffeaea;
+.main-footer .shortlink,
+.main-footer .shortlink:visited {
+    color: #fff;
+    text-decoration: underline;
 }
-
+.main-footer .shortlink:hover,
+.main-footer .shortlink:focus {
+    color: #fff;
+    text-decoration: underline;
+    outline: none;
+}
 .articles {
     max-width: 900px;
     margin: 2rem auto;
