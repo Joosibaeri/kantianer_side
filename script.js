@@ -11,6 +11,40 @@ window.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const list = document.getElementById('article-list');
     const loadMoreBtn = document.getElementById('load-more');
+    const searchInput = document.getElementById('search-input');
+
+    function filterArticles(query) {
+        if (!query) return articles;
+        const words = query.trim().toLowerCase().split(/\s+/);
+        return articles.filter(article => {
+            const text = (article.title + ' ' + article.teaser).toLowerCase();
+            return words.every(word => text.includes(word));
+        });
+    }
+
+    function renderArticles(filtered) {
+        if (!list) return;
+        list.innerHTML = '';
+        if (filtered.length === 0) {
+            list.innerHTML = '<p>Keine Artikel gefunden.</p>';
+            if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+            return;
+        }
+        const slice = filtered.slice(0, pageSize);
+        slice.forEach(article => {
+            const card = document.createElement('article');
+            card.className = 'article-card';
+            card.innerHTML = `
+                <a href="${article.url}" style="text-decoration:none;color:inherit;">
+                    <h3>${article.title}</h3>
+                </a>
+                <p>${article.teaser}</p>
+                <div class="article-date">${new Date(article.date).toLocaleDateString('de-DE')}</div>
+            `;
+            list.appendChild(card);
+        });
+        if (loadMoreBtn) loadMoreBtn.style.display = 'none';
+    }
 
     function renderNext() {
         if (!list) return;
@@ -53,6 +87,21 @@ window.addEventListener('DOMContentLoaded', () => {
             if (list) list.innerHTML = '';
             currentIndex = 0;
             renderNext();
+            if (searchInput) {
+                searchInput.addEventListener('input', (e) => {
+                    const query = searchInput.value;
+                    if (query.trim() === '') {
+                        // Standardansicht
+                        if (list) list.innerHTML = '';
+                        currentIndex = 0;
+                        renderNext();
+                        if (loadMoreBtn && articles.length > pageSize) loadMoreBtn.style.display = 'inline-block';
+                    } else {
+                        const filtered = filterArticles(query);
+                        renderArticles(filtered);
+                    }
+                });
+            }
         })
         .catch(err => {
             if (list) list.innerHTML = '<p>Keine Artikel gefunden.</p>';
