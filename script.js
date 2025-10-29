@@ -1,5 +1,6 @@
 // Setzt die Domain-Grundform in die Hitbox
 window.addEventListener('DOMContentLoaded', () => {
+    const yearSelect = document.getElementById('year-select');
     const domain = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ":" + window.location.port : "");
     const link = document.getElementById('domain-link');
     if (link) {
@@ -13,13 +14,22 @@ window.addEventListener('DOMContentLoaded', () => {
     const loadMoreBtn = document.getElementById('load-more');
     const searchInput = document.getElementById('search-input');
 
-    function filterArticles(query) {
-        if (!query) return articles;
-        const words = query.trim().toLowerCase().split(/\s+/);
-        return articles.filter(article => {
-            const text = (article.title + ' ' + article.teaser).toLowerCase();
-            return words.every(word => text.includes(word));
-        });
+    function filterArticles(query, year) {
+        let filtered = articles;
+        if (year && year !== '') {
+            filtered = filtered.filter(article => {
+                if (!article.date) return false;
+                return new Date(article.date).getFullYear().toString() === year;
+            });
+        }
+        if (query && query.trim() !== '') {
+            const words = query.trim().toLowerCase().split(/\s+/);
+            filtered = filtered.filter(article => {
+                const text = (article.title + ' ' + article.teaser).toLowerCase();
+                return words.every(word => text.includes(word));
+            });
+        }
+        return filtered;
     }
 
     function renderArticles(filtered) {
@@ -87,17 +97,45 @@ window.addEventListener('DOMContentLoaded', () => {
             if (list) list.innerHTML = '';
             currentIndex = 0;
             renderNext();
+            // Jahre ins Dropdown einfügen
+            if (yearSelect) {
+                const years = Array.from(new Set(articles.map(a => a.date ? new Date(a.date).getFullYear().toString() : null).filter(Boolean))).sort((a, b) => b - a);
+                yearSelect.innerHTML = '<option value="">Alle Jahre</option>';
+                years.forEach(year => {
+                    const opt = document.createElement('option');
+                    opt.value = year;
+                    opt.textContent = year;
+                    yearSelect.appendChild(opt);
+                });
+            }
             if (searchInput) {
-                searchInput.addEventListener('input', (e) => {
+                searchInput.addEventListener('input', () => {
                     const query = searchInput.value;
-                    if (query.trim() === '') {
+                    const year = yearSelect ? yearSelect.value : '';
+                    if (query.trim() === '' && (!year || year === '')) {
                         // Standardansicht
                         if (list) list.innerHTML = '';
                         currentIndex = 0;
                         renderNext();
                         if (loadMoreBtn && articles.length > pageSize) loadMoreBtn.style.display = 'inline-block';
                     } else {
-                        const filtered = filterArticles(query);
+                        const filtered = filterArticles(query, year);
+                        renderArticles(filtered);
+                    }
+                });
+            }
+            if (yearSelect) {
+                yearSelect.addEventListener('change', () => {
+                    const query = searchInput ? searchInput.value : '';
+                    const year = yearSelect.value;
+                    if (query.trim() === '' && (!year || year === '')) {
+                        // Standardansicht
+                        if (list) list.innerHTML = '';
+                        currentIndex = 0;
+                        renderNext();
+                        if (loadMoreBtn && articles.length > pageSize) loadMoreBtn.style.display = 'inline-block';
+                    } else {
+                        const filtered = filterArticles(query, year);
                         renderArticles(filtered);
                     }
                 });
