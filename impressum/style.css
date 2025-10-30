@@ -1,3 +1,11 @@
+.haftungstitel {
+    font-size: 1.13em;
+    font-weight: 700;
+    color: #b32626;
+    display: block;
+    margin-top: 0.7em;
+    margin-bottom: 0.2em;
+}
 /* Website-Link im Impressum immer schwarz und unterstrichen */
 a[href^="https://joosibaeri.xyz"] {
     color: #222 !important;
