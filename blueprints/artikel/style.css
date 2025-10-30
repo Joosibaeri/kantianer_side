@@ -1,7 +1,9 @@
 #scrollTopBtn {
     display: none;
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+    position: fixed;
+    left: 50%;
+    bottom: 2.2rem;
+    transform: translateX(-50%);
     background: #111;
     color: #fff;
     border: none;
@@ -15,10 +17,7 @@
     transition: opacity 0.2s, background 0.2s;
     opacity: 0.96;
     text-align: center;
-    z-index: 1;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
+    z-index: 1000;
 }
 #scrollTopBtn:hover {
         background: #222;
