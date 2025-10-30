@@ -28,12 +28,21 @@ window.addEventListener('DOMContentLoaded', () => {
         slice.forEach(article => {
             const card = document.createElement('article');
             card.className = 'article-card';
+            // Thumbnail nur auf Desktop anzeigen (ab 700px)
+            let thumbHtml = '';
+            if (window.innerWidth >= 700) {
+                const thumb = article.thumbnail || 'placeholder.png';
+                thumbHtml = `<div class="article-thumb"><img src="${thumb}" alt="Vorschaubild zu ${article.title}" loading="lazy"></div>`;
+            }
             card.innerHTML = `
-                <a href="${article.url}" style="text-decoration:none;color:inherit;">
-                    <h3>${article.title}</h3>
+                <a href="${article.url}" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:1.2rem;">
+                    ${thumbHtml}
+                    <div class="article-content">
+                        <h3>${article.title}</h3>
+                        <p>${article.teaser}</p>
+                        <div class="article-date">${new Date(article.date).toLocaleDateString('de-DE')}</div>
+                    </div>
                 </a>
-                <p>${article.teaser}</p>
-                <div class="article-date">${new Date(article.date).toLocaleDateString('de-DE')}</div>
             `;
             list.appendChild(card);
         });
@@ -51,12 +60,20 @@ window.addEventListener('DOMContentLoaded', () => {
             slice.forEach(article => {
                 const card = document.createElement('article');
                 card.className = 'article-card';
+                let thumbHtml = '';
+                if (window.innerWidth >= 700) {
+                    const thumb = article.thumbnail || 'placeholder.png';
+                    thumbHtml = `<div class="article-thumb"><img src="${thumb}" alt="Vorschaubild zu ${article.title}" loading="lazy"></div>`;
+                }
                 card.innerHTML = `
-                    <a href="${article.url}" style="text-decoration:none;color:inherit;">
-                        <h3>${article.title}</h3>
+                    <a href="${article.url}" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:1.2rem;">
+                        ${thumbHtml}
+                        <div class="article-content">
+                            <h3>${article.title}</h3>
+                            <p>${article.teaser}</p>
+                            <div class="article-date">${new Date(article.date).toLocaleDateString('de-DE')}</div>
+                        </div>
                     </a>
-                    <p>${article.teaser}</p>
-                    <div class="article-date">${new Date(article.date).toLocaleDateString('de-DE')}</div>
                 `;
                 list.appendChild(card);
             });
