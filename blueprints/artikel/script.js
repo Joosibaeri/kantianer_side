@@ -13,7 +13,7 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(response => response.text())
         .then(text => {
             metaText = text.trim();
-            document.getElementById('article-meta').textContent = metaText;
+            document.getElementById('article-meta').childNodes[0].textContent = metaText;
         });
 
     // Artikeltext laden und Lesedauer berechnen
@@ -29,11 +29,11 @@ window.addEventListener('DOMContentLoaded', () => {
             // Lesedauer berechnen (ca. 120 Wörter/Minute)
             const words = text.trim().split(/\s+/).length;
             const minutes = Math.max(1, Math.round(words / 120));
-            const lesezeit = ` · ⏱️ ${minutes} Min. Lesezeit`;
-            // Füge Lesedauer zur Meta-Info hinzu
-            const metaElem = document.getElementById('article-meta');
-            if (metaElem) {
-                metaElem.textContent = metaText + lesezeit;
+            const lesezeit = `⏱️ ${minutes} Min. Lesezeit`;
+            // Füge Lesedauer in eigenes <span> ein
+            const readingTimeElem = document.getElementById('reading-time');
+            if (readingTimeElem) {
+                readingTimeElem.textContent = lesezeit;
             }
         });
 
