@@ -1,3 +1,8 @@
+/* Website-Link im Impressum immer schwarz und unterstrichen */
+a[href^="https://joosibaeri.xyz"] {
+    color: #222 !important;
+    text-decoration: underline !important;
+}
 /* Impressum-Link im Footer immer weiß */
 .impressum-link {
     color: #fff !important;
