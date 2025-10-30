@@ -1,13 +1,15 @@
+
 .article-thumb {
-    flex: 0 0 120px;
-    width: 120px;
-    height: 80px;
+    flex: 0 0 320px;
+    width: 320px;
+    height: 180px;
     overflow: hidden;
-    border-radius: 8px;
+    border-radius: 10px;
     background: #f3f3f3;
     display: flex;
     align-items: center;
     justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07);
 }
 
 .article-thumb img {
@@ -15,6 +17,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    aspect-ratio: 16/9;
 }
 
 .article-content {
