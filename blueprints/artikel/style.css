@@ -1,24 +1,35 @@
 #scrollTopBtn {
-    display: none;
-    margin: 2.5rem auto 0 auto;
-    position: static;
-    background: #b32626;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    width: 160px;
-    height: 44px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-    font-size: 1.1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: opacity 0.2s, background 0.2s;
-    opacity: 0.92;
-    text-align: center;
+        display: none;
+        margin: 2.5rem auto 2.5rem auto;
+        position: static;
+        background: #111;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        width: 170px;
+        height: 46px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition: opacity 0.2s, background 0.2s;
+        opacity: 0.96;
+        text-align: center;
+        z-index: 1;
 }
 #scrollTopBtn:hover {
-    background: #a11e1e;
-    opacity: 1;
+        background: #222;
+        opacity: 1;
+}
+@media (max-width: 700px) {
+    #scrollTopBtn {
+        width: 98vw;
+        max-width: 340px;
+        min-width: 120px;
+        font-size: 1rem;
+        margin: 2rem auto 2rem auto;
+        height: 44px;
+    }
 }
 /* Impressum-Link im Footer immer weiß */
 .impressum-link {
