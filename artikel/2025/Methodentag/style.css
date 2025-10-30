@@ -1,3 +1,17 @@
+#scrollTopBtn:hover {
+        background: #222;
+        opacity: 1;
+}
+@media (max-width: 700px) {
+    #scrollTopBtn {
+        width: 98vw;
+        max-width: 340px;
+        min-width: 120px;
+        font-size: 1rem;
+        margin: 2rem auto 2rem auto;
+        height: 44px;
+    }
+}
 /* Impressum-Link im Footer immer weiß */
 .impressum-link {
     color: #fff !important;
@@ -40,17 +54,16 @@ main {
 
 .main-header h1 {
     margin: 0;
-    font-size: 2.5rem;
-    letter-spacing: 2px;
 }
 
-.subtitle {
-    margin-top: 0.5rem;
-    font-size: 1.2rem;
-    font-weight: 400;
-    color: #ffeaea;
+.main-footer .shortlink,
+.main-footer .shortlink:visited,
+.main-footer .shortlink:hover,
+.main-footer .shortlink:focus {
+    color: #fff;
+    text-decoration: underline !important;
+    outline: none;
 }
-
 .articles {
     max-width: 900px;
     margin: 2rem auto;
