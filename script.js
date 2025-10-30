@@ -31,8 +31,9 @@ window.addEventListener('DOMContentLoaded', () => {
             // Thumbnail nur auf Desktop anzeigen (ab 700px)
             let thumbHtml = '';
             if (window.innerWidth >= 700) {
-                const thumb = article.thumbnail || 'placeholder.png';
-                thumbHtml = `<div class="article-thumb"><img src="${thumb}" alt="Vorschaubild zu ${article.title}" loading="lazy"></div>`;
+                const baseUrl = article.url.replace(/\/$/, '');
+                const thumbPng = baseUrl + '/thumbnail.png';
+                thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumbPng}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='placeholder.png';\"></div>`;
             }
             card.innerHTML = `
                 <a href="${article.url}" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:1.2rem;">
@@ -62,8 +63,9 @@ window.addEventListener('DOMContentLoaded', () => {
                 card.className = 'article-card';
                 let thumbHtml = '';
                 if (window.innerWidth >= 700) {
-                    const thumb = article.thumbnail || 'placeholder.png';
-                    thumbHtml = `<div class="article-thumb"><img src="${thumb}" alt="Vorschaubild zu ${article.title}" loading="lazy"></div>`;
+                    const baseUrl = article.url.replace(/\/$/, '');
+                    const thumbPng = baseUrl + '/thumbnail.png';
+                    thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumbPng}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='placeholder.png';\"></div>`;
                 }
                 card.innerHTML = `
                     <a href="${article.url}" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:1.2rem;">
