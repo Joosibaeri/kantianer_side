@@ -1,23 +1,3 @@
-// Scroll-to-top Button
-window.addEventListener('DOMContentLoaded', function() {
-    const scrollBtn = document.getElementById('scrollTopBtn');
-    if (!scrollBtn) return;
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 200) {
-            scrollBtn.style.display = 'block';
-        } else {
-            scrollBtn.style.display = 'none';
-        }
-    });
-    scrollBtn.addEventListener('click', function() {
-        window.scrollTo({top:0, behavior:'smooth'});
-    });
-    // Button immer direkt nach dem Artikeltext platzieren, mittig, mit Abstand zum Footer
-    const articleBody = document.getElementById('article-body');
-    if (articleBody && scrollBtn.parentNode !== articleBody.parentNode) {
-        articleBody.insertAdjacentElement('afterend', scrollBtn);
-    }
-});
 window.addEventListener('DOMContentLoaded', () => {
     // Titel laden
     fetch('header.txt')
