@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', function() {
     scrollBtn.addEventListener('click', function() {
         window.scrollTo({top:0, behavior:'smooth'});
     });
-    // Button immer direkt nach dem Artikeltext platzieren
+    // Button immer direkt nach dem Artikeltext platzieren, mittig, mit Abstand zum Footer
     const articleBody = document.getElementById('article-body');
     if (articleBody && scrollBtn.parentNode !== articleBody.parentNode) {
         articleBody.insertAdjacentElement('afterend', scrollBtn);

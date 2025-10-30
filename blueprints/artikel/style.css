@@ -1,21 +1,24 @@
 #scrollTopBtn {
-        display: none;
-        margin: 2.5rem auto 2.5rem auto;
-        position: static;
-        background: #111;
-        color: #fff;
-        border: none;
-        border-radius: 8px;
-        width: 170px;
-        height: 46px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-        font-size: 1.1rem;
-        font-weight: 600;
-        cursor: pointer;
-        transition: opacity 0.2s, background 0.2s;
-        opacity: 0.96;
-        text-align: center;
-        z-index: 1;
+    display: none;
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    background: #111;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 170px;
+    height: 46px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, background 0.2s;
+    opacity: 0.96;
+    text-align: center;
+    z-index: 1;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
 }
 #scrollTopBtn:hover {
         background: #222;
