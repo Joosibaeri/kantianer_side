@@ -1,3 +1,18 @@
+// Scroll-to-top Button
+window.addEventListener('DOMContentLoaded', function() {
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    if (!scrollBtn) return;
+    window.addEventListener('scroll', function() {
+        if (window.scrollY > 200) {
+            scrollBtn.style.display = 'block';
+        } else {
+            scrollBtn.style.display = 'none';
+        }
+    });
+    scrollBtn.addEventListener('click', function() {
+        window.scrollTo({top:0, behavior:'smooth'});
+    });
+});
 window.addEventListener('DOMContentLoaded', () => {
     // Titel laden
     fetch('header.txt')
