@@ -19,6 +19,7 @@
         }
         .wrap{
             min-height:100vh;
+            min-height:100dvh;
             display:flex;
             flex-direction:column;
             justify-content:center;
@@ -26,6 +27,24 @@
             padding:2rem;
             box-sizing:border-box;
             text-align:center;
+        }
+        html, body {
+            height:100%;
+        }
+        body {
+            min-height:100vh;
+            min-height:100dvh;
+            display:flex;
+            flex-direction:column;
+        }
+        @media (max-width:600px){
+            .wrap {
+                min-height:100vh;
+                min-height:100dvh;
+                justify-content:center;
+                align-items:center;
+                padding:1rem;
+            }
         }
         header.main-header h1{margin:0;font-size:1.5rem}
         .error-code{
