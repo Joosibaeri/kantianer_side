@@ -1,3 +1,23 @@
+@media (max-width: 700px) {
+    .articles > div[style*="display:flex"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 0.7rem !important;
+    }
+    #topic-select, #year-select {
+        min-width: 160px;
+        width: 100%;
+        max-width: 350px;
+        margin-left: 0 !important;
+        text-align: center;
+        display: block;
+    }
+    #search-input {
+        width: 100%;
+        max-width: 350px;
+        margin-bottom: 0.2rem;
+    }
+}
 @media (max-width: 699px) {
     .article-thumb {
         display: none !important;
