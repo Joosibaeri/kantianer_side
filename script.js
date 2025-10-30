@@ -11,18 +11,9 @@ window.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
     const list = document.getElementById('article-list');
     const loadMoreBtn = document.getElementById('load-more');
-    const searchInput = document.getElementById('search-input');
 
     function filterArticles(query) {
-        let filtered = articles;
-        if (query && query.trim() !== '') {
-            const words = query.trim().toLowerCase().split(/\s+/);
-            filtered = filtered.filter(article => {
-                const text = (article.title + ' ' + article.teaser).toLowerCase();
-                return words.every(word => text.includes(word));
-            });
-        }
-        return filtered;
+        return articles;
     }
 
     function renderArticles(filtered) {
@@ -90,21 +81,6 @@ window.addEventListener('DOMContentLoaded', () => {
             if (list) list.innerHTML = '';
             currentIndex = 0;
             renderNext();
-            if (searchInput) {
-                searchInput.addEventListener('input', () => {
-                    const query = searchInput.value;
-                    if (query.trim() === '') {
-                        // Standardansicht
-                        if (list) list.innerHTML = '';
-                        currentIndex = 0;
-                        renderNext();
-                        if (loadMoreBtn && articles.length > pageSize) loadMoreBtn.style.display = 'inline-block';
-                    } else {
-                        const filtered = filterArticles(query);
-                        renderArticles(filtered);
-                    }
-                });
-            }
         })
         .catch(err => {
             if (list) list.innerHTML = '<p>Keine Artikel gefunden.</p>';
