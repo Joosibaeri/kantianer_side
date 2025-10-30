@@ -12,6 +12,11 @@ window.addEventListener('DOMContentLoaded', function() {
     scrollBtn.addEventListener('click', function() {
         window.scrollTo({top:0, behavior:'smooth'});
     });
+    // Button immer nach dem Artikeltext platzieren
+    const articleBody = document.getElementById('article-body');
+    if (articleBody && scrollBtn.parentNode !== articleBody.parentNode) {
+        articleBody.parentNode.appendChild(scrollBtn);
+    }
 });
 window.addEventListener('DOMContentLoaded', () => {
     // Titel laden

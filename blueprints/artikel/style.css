@@ -1,3 +1,25 @@
+#scrollTopBtn {
+    display: none;
+    margin: 2.5rem auto 0 auto;
+    position: static;
+    background: #b32626;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    width: 160px;
+    height: 44px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: opacity 0.2s, background 0.2s;
+    opacity: 0.92;
+    text-align: center;
+}
+#scrollTopBtn:hover {
+    background: #a11e1e;
+    opacity: 1;
+}
 /* Impressum-Link im Footer immer weiß */
 .impressum-link {
     color: #fff !important;
