@@ -57,14 +57,11 @@ main {
 }
 
 .main-footer .shortlink,
-.main-footer .shortlink:visited {
-    color: #fff;
-    text-decoration: underline;
-}
+.main-footer .shortlink:visited,
 .main-footer .shortlink:hover,
 .main-footer .shortlink:focus {
     color: #fff;
-    text-decoration: underline;
+    text-decoration: underline !important;
     outline: none;
 }
 .articles {
