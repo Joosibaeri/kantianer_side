@@ -1,9 +1,9 @@
 
 
 .article-thumb {
-    flex: 0 0 200px;
-    width: 200px;
-    height: 112px;
+    flex: 0 0 230px;
+    width: 230px;
+    height: 129px;
     overflow: hidden;
     border-radius: 10px;
     background: #f3f3f3;
@@ -14,11 +14,20 @@
 }
 
 .article-thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    aspect-ratio: 16/9;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        aspect-ratio: 16/9;
+        image-rendering: auto;
+        /* Für Retina/HiDPI: lade größere Bilder, skaliere sie runter */
+}
+
+@media (min-resolution: 2dppx), (min-device-pixel-ratio: 2) {
+    .article-thumb img {
+        /* Lade z.B. thumbnail@2x.png, falls vorhanden */
+        content: url(''); /* Wird per JS gesetzt */
+    }
 }
 
 .article-content {

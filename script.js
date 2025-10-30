@@ -32,8 +32,14 @@ window.addEventListener('DOMContentLoaded', () => {
             let thumbHtml = '';
             if (window.innerWidth >= 700) {
                 const baseUrl = article.url.replace(/\/$/, '');
-                const thumbPng = baseUrl + '/thumbnail.png';
-                thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumbPng}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='placeholder.png';\"></div>`;
+                let thumbPng = baseUrl + '/thumbnail.png';
+                // Für Retina/HiDPI: Versuche thumbnail@2x.png
+                if (window.devicePixelRatio >= 2) {
+                    const thumb2x = baseUrl + '/thumbnail@2x.png';
+                    thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumb2x}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='${thumbPng}';\"></div>`;
+                } else {
+                    thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumbPng}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='placeholder.png';\"></div>`;
+                }
             }
             card.innerHTML = `
                 <a href="${article.url}" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:1.2rem;">
@@ -64,8 +70,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 let thumbHtml = '';
                 if (window.innerWidth >= 700) {
                     const baseUrl = article.url.replace(/\/$/, '');
-                    const thumbPng = baseUrl + '/thumbnail.png';
-                    thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumbPng}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='placeholder.png';\"></div>`;
+                    let thumbPng = baseUrl + '/thumbnail.png';
+                    if (window.devicePixelRatio >= 2) {
+                        const thumb2x = baseUrl + '/thumbnail@2x.png';
+                        thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumb2x}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='${thumbPng}';\"></div>`;
+                    } else {
+                        thumbHtml = `<div class=\"article-thumb\"><img src=\"${thumbPng}\" alt=\"Vorschaubild zu ${article.title}\" loading=\"lazy\" onerror=\"this.onerror=null;this.src='placeholder.png';\"></div>`;
+                    }
                 }
                 card.innerHTML = `
                     <a href="${article.url}" style="text-decoration:none;color:inherit;display:flex;align-items:flex-start;gap:1.2rem;">
