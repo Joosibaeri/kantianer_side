@@ -1,25 +1,4 @@
 window.addEventListener('DOMContentLoaded', () => {
-    // Thumbnail für Retina/2x-Displays dynamisch setzen
-    const thumbImg = document.getElementById('thumbnail');
-    if (thumbImg) {
-        // Standard-Thumbnail
-        let thumbPng = 'thumbnail.png';
-        if (window.devicePixelRatio >= 2) {
-            // Versuche, 2x-Variante zu laden, fallback auf Standard
-            let thumb2x = 'thumbnail@2x.png';
-            thumbImg.src = thumb2x;
-            thumbImg.onerror = function() {
-                this.onerror = null;
-                this.src = thumbPng;
-            };
-        } else {
-            thumbImg.src = thumbPng;
-            thumbImg.onerror = function() {
-                this.onerror = null;
-                this.src = 'placeholder.png';
-            };
-        }
-    }
 
     // Titel laden
     fetch('header.txt')
