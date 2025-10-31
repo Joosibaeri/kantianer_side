@@ -28,7 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
             // Lesedauer berechnen (ca. 120 Wörter/Minute)
             const words = text.trim().split(/\s+/).length;
-            const minutes = Math.max(1, Math.round(words / 120));
+            const minutes = Math.max(1, Math.round(words / 90));
             const lesezeit = ` ⏱️ ca. ${minutes} Min. Lesezeit`;
             // Füge Lesedauer in eigenes <span> ein
             const readingTimeElem = document.getElementById('reading-time');
