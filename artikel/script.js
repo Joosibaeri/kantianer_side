@@ -16,8 +16,15 @@ window.addEventListener('DOMContentLoaded', () => {
     function renderArticles(filtered) {
         if (!list) return;
         list.innerHTML = '';
+        // Ergebniszähler anzeigen
+        const countElem = document.getElementById('article-count');
+        if (countElem) {
+            countElem.textContent = filtered.length === 1
+                ? '1 Artikel gefunden'
+                : filtered.length + ' Artikel gefunden';
+        }
         if (!filtered.length) {
-            list.innerHTML = '<p>Keine Artikel gefunden.</p>';
+            list.innerHTML += '<p>Keine Artikel gefunden.</p>';
             return;
         }
         filtered.forEach(article => {
