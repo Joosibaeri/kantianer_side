@@ -20,11 +20,12 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('text.txt')
         .then(response => response.text())
         .then(text => {
-            // Optional: Zeilenumbrüche in <p> umwandeln
-            document.getElementById('article-body').innerHTML = text
-                .split('\n\n')
-                .map(paragraph => `<p>${paragraph.trim()}</p>`)
+            // Doppelte Zeilenumbrüche zu <p>, einfache zu <br>
+            const html = text
+                .split(/\n\n+/)
+                .map(paragraph => `<p>${paragraph.replace(/\n/g, '<br>')}</p>`)
                 .join('');
+            document.getElementById('article-body').innerHTML = html;
 
             // Lesedauer berechnen (ca. 120 Wörter/Minute)
             const words = text.trim().split(/\s+/).length;
