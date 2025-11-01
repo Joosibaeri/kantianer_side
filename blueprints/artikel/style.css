@@ -121,7 +121,7 @@ main {
 
 /* Thumbnail wie auf Startseite: links, feste Größe, Cover, Border-Radius */
 .article-thumbnail {
-    width: 340px;
+    width: 700px;
     aspect-ratio: 16/9;
     height: auto;
     max-width: 100%;
