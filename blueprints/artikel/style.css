@@ -121,11 +121,9 @@ main {
 
 /* Thumbnail wie auf Startseite: links, feste Größe, Cover, Border-Radius */
 .article-thumbnail {
-    width: 700px;
-    aspect-ratio: 16/9;
-    height: auto;
-    max-width: 100%;
-    /* min-height entfernt, aspect-ratio übernimmt die Höhe */
+    flex: 0 0 230px;
+    width: 230px;
+    height: 129px;
     overflow: hidden;
     border-radius: 10px;
     background: #f3f3f3;
@@ -137,10 +135,10 @@ main {
 }
 .article-thumbnail img {
     width: 100%;
-    height: auto;
-    aspect-ratio: 16/9;
+    height: 100%;
     object-fit: cover;
     display: block;
+    aspect-ratio: 16/9;
     image-rendering: auto;
 }
 
@@ -160,6 +158,23 @@ main {
     align-items: center;
 }
 
+/* Thumbnail bündig mit Artikel-Box */
+.article-thumbnail {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin: 0 0 1.5rem 0;
+}
+.article-thumbnail img {
+    width: 100%;
+    max-width: 600px;
+    aspect-ratio: 16/9;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    display: block;
+    margin: 0;
+}
 
 /* Titel und Autor: Autor leicht über Titel, mittig */
 .article-header-row {
@@ -179,10 +194,7 @@ main {
     line-height: 1.1;
     word-break: break-word;
     overflow-wrap: break-word;
-    hyphens: manual;
-        max-height: 4.2em;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    hyphens: auto;
 }
 
 #article-meta {

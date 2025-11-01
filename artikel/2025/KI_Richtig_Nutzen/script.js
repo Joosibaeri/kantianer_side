@@ -20,22 +20,11 @@ window.addEventListener('DOMContentLoaded', () => {
     fetch('text.txt')
         .then(response => response.text())
         .then(text => {
-            // Wörter ab 16 Zeichen mit <wbr> trennen
-            function insertWbr(word) {
-                if (word.length >= 16) {
-                    // Füge <wbr> nach jedem 15. Zeichen ein
-                    return word.replace(/(.{15})/g, '$1<wbr>');
-                }
-                return word;
-            }
-            // Paragraphen splitten und Wörter prüfen
-            const html = text.split('\n\n').map(paragraph => {
-                return '<p>' + paragraph.trim().split(/(\s+)/).map(token => {
-                    // Nur auf Wörter anwenden, nicht auf Leerzeichen
-                    return token.trim().length > 0 ? insertWbr(token) : token;
-                }).join('') + '</p>';
-            }).join('');
-            document.getElementById('article-body').innerHTML = html;
+            // Optional: Zeilenumbrüche in <p> umwandeln
+            document.getElementById('article-body').innerHTML = text
+                .split('\n\n')
+                .map(paragraph => `<p>${paragraph.trim()}</p>`)
+                .join('');
 
             // Lesedauer berechnen (ca. 120 Wörter/Minute)
             const words = text.trim().split(/\s+/).length;
