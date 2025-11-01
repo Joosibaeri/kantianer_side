@@ -123,7 +123,8 @@ main {
 .article-thumbnail {
     flex: 0 0 230px;
     width: 230px;
-    aspect-ratio: 16/9;
+    max-width: 100%;
+    min-height: 129px;
     overflow: hidden;
     border-radius: 10px;
     background: #f3f3f3;
@@ -195,6 +196,9 @@ main {
     word-break: break-word;
     overflow-wrap: break-word;
     hyphens: manual;
+        max-height: 4.2em;
+        overflow: hidden;
+        text-overflow: ellipsis;
 }
 
 #article-meta {
