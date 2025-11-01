@@ -197,13 +197,6 @@ main {
     hyphens: manual;
 }
 
-/* Keine Silbentrennung für Wörter bis 15 Zeichen */
-#article-body p {
-    word-break: break-word;
-    overflow-wrap: break-word;
-    hyphens: manual;
-}
-
 #article-meta {
     font-size: 1rem;
     color: #888;
