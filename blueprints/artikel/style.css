@@ -121,10 +121,10 @@ main {
 
 /* Thumbnail wie auf Startseite: links, feste Größe, Cover, Border-Radius */
 .article-thumbnail {
-    flex: 0 0 230px;
     width: 230px;
-    max-width: 100%;
     aspect-ratio: 16/9;
+    height: auto;
+    max-width: 100%;
     /* min-height entfernt, aspect-ratio übernimmt die Höhe */
     overflow: hidden;
     border-radius: 10px;
@@ -137,7 +137,7 @@ main {
 }
 .article-thumbnail img {
     width: 100%;
-    height: 100%;
+    height: auto;
     aspect-ratio: 16/9;
     object-fit: cover;
     display: block;
