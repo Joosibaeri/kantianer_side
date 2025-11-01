@@ -194,7 +194,14 @@ main {
     line-height: 1.1;
     word-break: break-word;
     overflow-wrap: break-word;
-    hyphens: auto;
+    hyphens: manual;
+}
+
+/* Keine Silbentrennung für Wörter bis 15 Zeichen */
+#article-body p {
+    word-break: break-word;
+    overflow-wrap: break-word;
+    hyphens: manual;
 }
 
 #article-meta {
