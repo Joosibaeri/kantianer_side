@@ -23,7 +23,7 @@ window.addEventListener('DOMContentLoaded', () => {
             // Optional: Zeilenumbrüche in <p> umwandeln
             document.getElementById('article-body').innerHTML = text
                 .split('\n\n')
-                .map(paragraph => `${paragraph.trim()}<('\n')>`)
+                .map(paragraph => `${paragraph.trim()}`('\n'))
                 .join('');
 
             // Lesedauer berechnen (ca. 120 Wörter/Minute)
