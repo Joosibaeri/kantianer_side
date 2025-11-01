@@ -124,8 +124,8 @@ main {
     flex: 0 0 230px;
     width: 230px;
     max-width: 100%;
-    min-height: 129px;
     aspect-ratio: 16/9;
+    /* min-height entfernt, aspect-ratio übernimmt die Höhe */
     overflow: hidden;
     border-radius: 10px;
     background: #f3f3f3;
